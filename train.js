@@ -1,1 +1,1 @@
-console.log('ishga tushdi')
+console.log("TRAIN AREA")
