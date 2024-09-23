@@ -3,6 +3,16 @@ console.log("Web serverni boshlash");
 const express = require("express");
 const app = express();
 const http = require("http");
+const fs = require("fs");
+
+let user;
+fs.readFile("database/user.json", "utf-8", (err, data) => {
+if (err){
+    console.log("ERROR:", err)
+}else{
+    user = JSON.parse(data)
+}
+});
 
 //1:kirish kodlari
 app.use(express.static("public"));
@@ -18,17 +28,22 @@ app.set("view engine", "ejs");
 //4:Routing kodlari
 
   
-app.get("/greeting", function(req, res){
-    res.end(`<h1>Hello Dylan</h1>`)
+app.post("/create-item", (req, res) =>{
+    console.log(req.body);
+    res.json({test:"success"});
+} )
+
+app.get("/author", function(req, res){
+    res.render("author" , { user: user });
 });
 
-app.get("/gift", function(req, res){
-    res.end(`<h1>siz sovg'alar pagedasiz</h1>`)
+app.get("/", function(req, res){
+    res.render('xarid')
 });
 
 
 const server = http.createServer(app);
-let PORT = 3005;
+let PORT = 3010;
 server.listen(PORT, function (){
     console.log(`The server is running succesfully on port: ${PORT}`)
     
