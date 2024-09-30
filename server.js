@@ -38,14 +38,14 @@ app.get("/author", function(req, res){
 });
 
 app.get("/", function(req, res){
-    res.render('xarid')
+    res.render('reja')
 });
 
 
 const server = http.createServer(app);
-let PORT = 3010;
+let PORT = 3011;
 server.listen(PORT, function (){
-    console.log(`The server is running succesfully on port: ${PORT}`)
+    console.log(`The server is running succesfully on port: ${PORT}, http://localhost:${PORT}`)
     
 });
 

@@ -1,9 +1,9 @@
 {
-    "name": "Dylan",
+    "name": " Dylan",
     "profession": "Software Engineer",
     "age": "23",
     "residence": "S.Korea",
-    "adress": "S.Korea, Busan",
+    "adress": "S.Korea, Kimhe",
     "languages": ["Uzbek", "Korean", "English"],
     "skills": ["Html", "Css", "Javascript", "NodeJs"],
     "extra_skills": ["Bootstrap, Materialize", "Styling, Sass", "Django, Flask", "GIT Knowledge"],
