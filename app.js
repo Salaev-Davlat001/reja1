@@ -5,7 +5,7 @@ const app = express();
 const fs = require("fs");
 
 //MongoDB connect
-
+const db = require("./server").db();
 
 let user;
 fs.readFile("database/user.json", "utf-8", (err, data) => {
@@ -32,7 +32,7 @@ app.set("view engine", "ejs");
   
 app.post("/create-item", (req, res) =>{
     console.log(req.body);
-    res.json({test:"success"});
+    res.end("success");
 } )
 
 app.get("/author", function(req, res){
@@ -40,7 +40,20 @@ app.get("/author", function(req, res){
 });
 
 app.get("/", function(req, res){
-    res.render('reja')
+    db.collection("plans")
+    .find()
+    .toArray((err, data)=> {
+        if (err) {
+            console.log(err);
+            res.end("something went wrong");
+        }else{
+            console.log(data);
+            res.render("reja");
+
+           
+        }
+    })
+    
 });
 
 module.exports = app
